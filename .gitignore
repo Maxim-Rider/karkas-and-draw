@@ -1,129 +1,268 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+#karkas
+import pygame
 
-# C extensions
-*.so
+FPS = 1
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+pygame.init()
+pygame.display.set_mode((600,400))
+clock = pygame.time.Clock()
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+pygame.display.update
+s=1
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+play=True
+while play:
+    clock.tick(FPS)
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            play=False
+    
+    s=s+1
+    test=str(s)
+    
+    pygame.display.set_caption('test'+test)
+    
+    pygame.display.update()
+pygame.quit()
 
-# Translations
-*.mo
-*.pot
+#draw_прямоугольник
+import pygame
+pygame.init()
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+sc=pygame.display.set_mode((300,200))
 
-# Flask stuff:
-instance/
-.webassets-cache
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+pygame.draw.rect(sc, (255, 255, 255), (20, 20, 100, 75)) 
+pygame.draw.rect(sc, (64, 128, 255), (150, 20, 100, 75), 8)
 
-# Scrapy stuff:
-.scrapy
 
-# Sphinx documentation
-docs/_build/
+pygame.display.update()
 
-# PyBuilder
-target/
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
 
-# Jupyter Notebook
-.ipynb_checkpoints
+#draw_отрезок
+import pygame
+pygame.init()
 
-# IPython
-profile_default/
-ipython_config.py
+sc=pygame.display.set_mode((300,200))
 
-# pyenv
-.python-version
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pygame.draw.line(sc, WHITE, [10, 30], [290, 15], 3) 
+pygame.draw.line(sc, WHITE, [10, 50], [290, 35]) 
+pygame.draw.aaline(sc, WHITE, [10, 70], [290, 55])
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+pygame.display.update()
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
 
-# SageMath parsed files
-*.sage.py
+#draw_ломанные
+import pygame
+pygame.init()
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+sc=pygame.display.set_mode((300,200))
 
-# Spyder project settings
-.spyderproject
-.spyproject
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pygame.draw.lines(sc, WHITE, True, [[10, 10], [140, 70], [280, 20]], 2) 
+pygame.draw.aalines(sc, WHITE, False, [[10, 100], [140, 170], [280, 110]])
 
-# Rope project settings
-.ropeproject
+pygame.display.update()
 
-# mkdocs documentation
-/site
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+#draw_произвольный многоульник
+import pygame
+pygame.init()
 
-# Pyre type checker
-.pyre/
+sc=pygame.display.set_mode((300,200))
+
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pygame.draw.polygon(sc, WHITE, [[150, 10], [180, 50], [90, 90], [30, 30]]) 
+pygame.draw.polygon(sc, WHITE, [[250, 110], [280, 150], [190, 190], [130, 130]]) 
+pygame.draw.aalines(sc, WHITE, True, [[250, 110], [280, 150], [190, 190], [130, 130]])
+
+pygame.display.update()
+
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
+
+#draw_круги
+import pygame
+pygame.init()
+
+sc=pygame.display.set_mode((300,200))
+
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pygame.draw.circle(sc, YELLOW, (100, 100), 50) 
+pygame.draw.circle(sc, PINK, (200, 100), 50, 10)
+
+pygame.display.update()
+
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
+
+#draw_эллипс
+import pygame
+pygame.init()
+
+sc=pygame.display.set_mode((300,200))
+
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pygame.draw.ellipse(sc, GREEN, (10, 50, 280, 100))
+
+pygame.display.update()
+
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
+
+#draw_дуга
+import pygame
+pygame.init()
+
+sc=pygame.display.set_mode((300,200))
+
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+r1 = pygame.Rect((150, 20, 100, 75)) 
+pi = 3.14 
+pygame.draw.arc(sc, WHITE, (10, 50, 280, 100), 0, pi) 
+pygame.draw.arc(sc, PINK, (50, 30, 200, 150), pi, 2*pi, 3)
+
+pygame.display.update()
+
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
+
+#draw_нарисовал_что-то_своё
+import pygame
+pygame.init()
+
+sc=pygame.display.set_mode((300,200))
+
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+GRAY = (125, 125, 125) 
+LIGHT_BLUE = (64, 128, 255) 
+GREEN = (0, 200, 64)
+YELLOW = (225, 225, 0) 
+PINK = (230, 50, 230) 
+RED = (255, 0, 0)
+r1 = pygame.Rect((150, 20, 100, 75)) 
+#M
+pygame.draw.line(sc, WHITE, [10, 30], [10, 150], 3) 
+pygame.draw.line(sc, WHITE, [10, 30], [50, 75], 3) 
+pygame.draw.line(sc, WHITE, [50, 75], [90, 30], 3) 
+pygame.draw.line(sc, WHITE, [90, 30], [90, 150], 3) 
+#A
+pygame.draw.line(sc, WHITE, [130, 30], [110, 150], 3) 
+pygame.draw.line(sc, WHITE, [130, 30], [150, 150], 3) 
+pygame.draw.line(sc, WHITE, [120, 90], [140, 90], 3) 
+#X
+pygame.draw.line(sc, WHITE, [170, 30], [210, 150], 3) 
+pygame.draw.line(sc, WHITE, [210, 30], [170, 150], 3) 
+#светофор =)
+pygame.draw.circle(sc, RED, (250, 50), 15) 
+pygame.draw.circle(sc, YELLOW, (250, 90), 15) 
+pygame.draw.circle(sc, GREEN, (250, 130), 15) 
+pygame.display.update()
+
+done=True
+while done:
+    pygame.time.delay(1000)
+    for i in pygame.event.get():
+        if i.type==pygame.QUIT:
+            
+            done=False
+pygame.quit()
